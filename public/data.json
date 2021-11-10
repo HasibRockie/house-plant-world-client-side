@@ -1,0 +1,89 @@
+[
+  { 
+    "name": "Antherium",
+    "price" : "12",
+    "image": "https://www.jacksonandperkins.com/images/xxl/v2435.jpg" },
+  {
+    "image": "https://4.imimg.com/data4/XT/UB/MY-12780455/4c9ae0b69b936e9d982bfca3d582a6598e37e407-500x500.jpg"
+  },
+  {
+    "name": "Areca Plant",
+    "price" : "15",
+    "image": "https://cdn.shopify.com/s/files/1/0075/1117/9353/products/ZZnocard_600x.jpg?v=1571021045"
+  },
+  {
+    "name": "Caladium Plant",
+    "price" : "9",
+    "image": "https://housefur.com/wp-content/uploads/2021/05/Pilea-Peperomioides-1-370x402.jpg"
+  },
+  {
+    "name": "Basket Plant",
+    "price" : "17",
+    "image": "https://www.stylist.co.uk/images/app/uploads/2020/11/17171034/popular-houseplants-2021-crop-1605633091-1280x853.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress"
+  },
+  {
+    "name": "Kamini Bonshai",
+    "price" : "6",
+    "image": "https://www.stylist.co.uk/images/app/uploads/2020/11/17160800/popular-houseplants-mistletoe-cactus-crop-1605629311-1024x1024.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress&fm=webp"
+  },
+  {
+    "name": "Money Plant",
+    "price" : "12",
+    "image": "https://www.stylist.co.uk/images/app/uploads/2020/11/17162455/popular-houseplants-string-of-hearts-crop-1605630332-1440x1440.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress&fm=webp"
+  },
+  {
+    "name": "Phoenix plant",
+    "price" : "20",
+    "image": "https://www.stylist.co.uk/images/app/uploads/2020/11/17163145/popular-houseplants-happy-bean-plant-crop-1605630877-940x940.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress&fm=webp"
+  },
+  {
+    "name": "Silver Queen",
+    "price" : "32",
+    "image": "https://www.stylist.co.uk/images/app/uploads/2020/11/17163744/popular-houseplants-chinese-money-plant-crop-1605631107-1570x1570.png?w=1200&h=1&fit=max&auto=format%2Ccompress&fm=webp"
+  },
+  {
+    "name": "Snake Plant",
+    "price" : "15",
+    "image": "https://cdn.shopify.com/s/files/1/0151/1650/1046/products/Epipremnum_NJoy_Indoor_Pot_Plant_Concrete_Ceramic_Planter_360x.jpg?v=1616637565"
+  },
+  {
+    "name": "Thai Sup Pata Plant",
+    "price" : "19",
+    "image": "https://cdn.shopify.com/s/files/1/0151/1650/1046/products/Peperomia_polybotra_nora_concrete_ceramic_planter_540x.jpg?v=1572914065"
+  },
+  {
+    "name": "Xerosicyos Danguyi",
+    "price" : "22",
+    "image": "https://cdn.shopify.com/s/files/1/0151/1650/1046/products/Philodendron_Brasil_Indoor_Pot_Plants_Ceramic_Oslo_360x.jpg?v=1603346973"
+  },
+  {
+    "name": "Adenium",
+    "price" : "13",
+    "image": "https://mobileimages.lowes.com/productimages/10997099-4080-4165-82b7-7954082d8285/04924001.jpg?size=pdhi"
+  },
+  {
+    "name": "Anthorium White",
+    "price" : "17",
+    "image": "https://img.buzzfeed.com/buzzfeed-static/static/2018-03/8/13/asset/buzzfeed-prod-fastlane-03/sub-buzz-11700-1520533133-4.png?output-format=auto&output-quality=auto"
+  },
+  {
+    "name": "Bird of Paradise",
+    "price" : "18",
+    "image": "https://cdn.substack.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3bfc5f1d-41fb-4ca3-8d19-b8c3d620e430_1400x1400.jpeg"
+  },
+  {
+    "name": "Bonsai Kamini",
+    "price" : "12",
+    "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578423305-pothos-indoor-plant-1578423300.jpg?crop=1xw:1xh;center,top&resize=768:*"
+  },
+  {
+    "name": "Boston fern",
+    "price" : "22",
+    "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1607026112-aloe-vera-1607026107.jpg?crop=1xw:1xh;center,top&resize=768:*"
+  },
+  {
+    "name": "Citronella Plant",
+    "price" : "30",
+    "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1607026092-succulents-1607026087.jpg?crop=1xw:1xh;center,top&resize=768:*"
+  }
+]

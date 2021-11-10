@@ -27,27 +27,33 @@ const Header = () => {
             <Nav.Link as={Link} to="/services">
               Services
             </Nav.Link>
-            <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Pay</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Review</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Manage" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                Manage All Orders
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Add A Product
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Make Admin</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Manage Products
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item  onClick={handleLogOut}>Log Out</NavDropdown.Item>
-            </NavDropdown>
+            {
+                user?.email && <NavDropdown title="Dashboard" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Pay</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Review</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
+              </NavDropdown>
+            }
+            
+            {
+                user?.email && <NavDropdown title="Manage" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">
+                  Manage All Orders
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Add A Product
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Make Admin</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Manage Products
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item  onClick={handleLogOut}>Log Out</NavDropdown.Item>
+              </NavDropdown>
+            }
+
             {
                 !user?.email && <Nav.Link as={Link} to="/login">
                 Login

@@ -8,6 +8,8 @@ import Register from "./Pages/Register/Register";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import Footer from "./Components/Footer/Footer";
 import AuthProvider from "./Context/AuthProvider";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PublicRoute from './PublicRoute/PublicRoute';
 
 function App() {
   return (
@@ -16,12 +18,55 @@ function App() {
         <BrowserRouter>
           <Header></Header>
           <Routes>
+            {/* <Route path='/'>
+              <Home></Home>
+            </Route>
+            <Route path='/home'>
+              <Home></Home>
+            </Route>
+            <Route path='/services'>
+              <Services></Services>
+            </Route>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+            <Route path='/register'>
+              <Register></Register>
+            </Route>
+            <Route path='/placeorder'>
+              <PlaceOrder></PlaceOrder>
+            </Route> */}
+
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/" element={<Home />} />
             <Route exact path="/services" element={<Services />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/register" element={<Register />} />
-            <Route exact path="/placeorder" element={<PlaceOrder />} />
+            <Route
+              exact
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              exact
+              path="/register"
+              element={
+                <PublicRoute>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
+              exact
+              path="/placeorder"
+              element={
+                <PrivateRoute>
+                  <PlaceOrder />
+                </PrivateRoute>
+              }
+            />
           </Routes>
           <Footer></Footer>
         </BrowserRouter>

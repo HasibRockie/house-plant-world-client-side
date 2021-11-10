@@ -10,7 +10,7 @@ const Header = () => {
     Logout()
   }
 
-  console.log(user);
+
 
   return (
     <Navbar bg="light" expand="lg">

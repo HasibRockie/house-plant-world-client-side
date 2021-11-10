@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "./LOGO.png";
-import useAuth from './../../Context/useAuth';
+import useAuth from "./../../Context/useAuth";
 
 const Header = () => {
-  const {user, Logout} = useAuth();
+  const { user, Logout, isAdmin, name } = useAuth();
   const handleLogOut = () => {
-    Logout()
-  }
-
-
+    Logout();
+  };
 
   return (
     <Navbar bg="light" expand="lg">
@@ -27,51 +25,54 @@ const Header = () => {
             <Nav.Link as={Link} to="/services">
               Services
             </Nav.Link>
-            {
-                user?.email && <NavDropdown title="Dashboard" id="basic-nav-dropdown">
+            {user?.email && (
+              <NavDropdown title="Dashboard" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Pay</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  My Orders
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Review</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogOut}>
+                  Log Out
+                </NavDropdown.Item>
               </NavDropdown>
-            }
-            
-            {
-                user?.email && <NavDropdown title="Manage" id="basic-nav-dropdown">
+            )}
+
+            { isAdmin==="admin" && (
+              <NavDropdown title="Manage" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Manage All Orders
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   Add A Product
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Make Admin</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Make Admin
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
                   Manage Products
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item  onClick={handleLogOut}>Log Out</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogOut}>
+                  Log Out
+                </NavDropdown.Item>
               </NavDropdown>
-            }
+            )}
 
-            {
-                !user?.email && <Nav.Link as={Link} to="/login">
+            {!user?.email && (
+              <Nav.Link as={Link} to="/login">
                 Login
               </Nav.Link>
-            }
-            
-            {
-                !user?.email && <Nav.Link as={Link} to="/register">
+            )}
+
+            {!user?.email && (
+              <Nav.Link as={Link} to="/register">
                 Register
               </Nav.Link>
-            }
+            )}
 
-            {
-                user?.email && <Nav.Link >
-                {user?.email}
-              </Nav.Link>
-            }
-            
+            {user?.email && <Nav.Link className="text-danger">{name}</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>

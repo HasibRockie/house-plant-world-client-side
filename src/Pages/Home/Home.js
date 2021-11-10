@@ -6,6 +6,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner> 
+            <hr />
             <Products></Products>
             <hr />
         </div>

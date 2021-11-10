@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleLogin = (e) => {
     const name = nameRef.current.value;
-    const email = emailRef.current.value;
+    const email = emailRef.current.value.toLowerCase();
     const password = passwordRef.current.value;
     const retype = retypeRef.current.value;
     console.log(name, email, password, retype);

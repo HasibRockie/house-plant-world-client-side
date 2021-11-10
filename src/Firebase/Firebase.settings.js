@@ -14,18 +14,32 @@ const FirebaseSettings = () => {
 
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  const [email, setEmail] = useState(null);
+  const [name, setName] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   //   on auth state change
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setEmail(user?.email);
         setError("");
       } else {
         setUser({});
       }
     });
-  }, []);
+
+    const url = `http://localhost:5000/users/${email}`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setIsAdmin(data?.role);
+        setName(data?.displayName)
+      });
+  }, [email]);
+
 
   //   sign up function
   const SignUpWithEmail = (name, email, password) => {
@@ -39,7 +53,11 @@ const FirebaseSettings = () => {
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify({ ...verified, displayName: name }),
+          body: JSON.stringify({
+            email: email,
+            displayName: name,
+            role: "user",
+          }),
         });
       })
       .catch((error) => {
@@ -52,8 +70,8 @@ const FirebaseSettings = () => {
   const SignInWithEmail = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        setUser(user);
+        const userId = userCredential.user;
+        setUser(userId);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -65,10 +83,10 @@ const FirebaseSettings = () => {
   const Logout = () => {
     signOut(auth)
       .then(() => {
-        setUser({})
+        setUser({});
       })
       .catch((error) => {
-        setError(error?.errorMessage)
+        setError(error?.errorMessage);
       });
   };
 
@@ -78,6 +96,8 @@ const FirebaseSettings = () => {
     SignUpWithEmail,
     SignInWithEmail,
     Logout,
+    isAdmin,
+    name,
   };
 };
 

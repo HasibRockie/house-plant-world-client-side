@@ -40,17 +40,19 @@ const Login = () => {
             />
           </Form.Group>
 
-          {
-              error && <Alert variant="danger">
-              {error} 
-            </Alert>
-          }
+          
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit">
               Login
             </Button>
           </div>
+          <br />
+          {
+              error && <Alert variant="danger">
+              {error} 
+            </Alert>
+          }
         </Form>
 
         <hr />

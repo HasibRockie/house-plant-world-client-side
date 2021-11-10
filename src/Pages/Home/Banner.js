@@ -10,7 +10,7 @@ const Banner = () => {
       <div className="banner-container">
         <div className="half banner-text">
           <h1>
-            DECORATE YOUR WOLRD WITH US
+            DECORATE YOUR WORLD WITH US
           </h1>
           <p>
             You can have the best home decorator plants here.  All

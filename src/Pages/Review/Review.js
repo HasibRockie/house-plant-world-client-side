@@ -29,7 +29,10 @@ const Review = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(object),
-    }).then((res) => setSuccessful(true));
+    }).then((res) => {
+        setSuccessful(true)
+        e.target.reset()
+    });
     e.preventDefault();
   };
 

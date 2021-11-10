@@ -17,9 +17,11 @@ const FirebaseSettings = () => {
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   //   on auth state change
   useEffect(() => {
+    setIsLoading(true);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -28,6 +30,7 @@ const FirebaseSettings = () => {
       } else {
         setUser({});
       }
+      setIsLoading(false);
     });
 
     const url = `http://localhost:5000/users/${email}`;
@@ -36,13 +39,13 @@ const FirebaseSettings = () => {
       .then((res) => res.json())
       .then((data) => {
         setIsAdmin(data?.role);
-        setName(data?.displayName)
+        setName(data?.displayName);
       });
   }, [email]);
 
-
   //   sign up function
   const SignUpWithEmail = (name, email, password) => {
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const verified = userCredential.user;
@@ -63,11 +66,13 @@ const FirebaseSettings = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
-      });
+      })
+      .finally(setIsLoading(false));
   };
 
   // login function
   const SignInWithEmail = (email, password) => {
+    setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const userId = userCredential.user;
@@ -76,18 +81,21 @@ const FirebaseSettings = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
-      });
+      })
+      .finally(setIsLoading(false));
   };
 
   //   log out function
   const Logout = () => {
+    setIsLoading(true);
     signOut(auth)
       .then(() => {
         setUser({});
       })
       .catch((error) => {
         setError(error?.errorMessage);
-      });
+      })
+      .finally(setIsLoading(false));
   };
 
   return {
@@ -98,6 +106,7 @@ const FirebaseSettings = () => {
     Logout,
     isAdmin,
     name,
+    isLoading,
   };
 };
 

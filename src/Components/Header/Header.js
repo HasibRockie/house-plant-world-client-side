@@ -5,7 +5,10 @@ import logo from "./LOGO.png";
 import useAuth from './../../Context/useAuth';
 
 const Header = () => {
-  const {user} = useAuth();
+  const {user, Logout} = useAuth();
+  const handleLogOut = () => {
+    Logout()
+  }
 
   console.log(user);
 
@@ -29,7 +32,7 @@ const Header = () => {
               <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Review</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleLogOut}>Log Out</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Manage" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
@@ -43,14 +46,26 @@ const Header = () => {
                 Manage Products
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+              <NavDropdown.Item  onClick={handleLogOut}>Log Out</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
-            <Nav.Link as={Link} to="/register">
-              Register
-            </Nav.Link>
+            {
+                !user?.email && <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+            }
+            
+            {
+                !user?.email && <Nav.Link as={Link} to="/register">
+                Register
+              </Nav.Link>
+            }
+
+            {
+                user?.email && <Nav.Link >
+                {user?.email}
+              </Nav.Link>
+            }
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

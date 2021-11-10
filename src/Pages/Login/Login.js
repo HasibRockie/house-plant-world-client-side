@@ -1,25 +1,51 @@
-import React from "react";
-import { Form, Button } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
 import "./Login.css";
 import logo from "../../Components/Header/LOGO.png";
 import { Link } from "react-router-dom";
+import useAuth from "./../../Context/useAuth";
 
 const Login = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { SignInWithEmail, error } = useAuth();
+
+  const handleLogin = (e) => {
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    SignInWithEmail(email, password);
+    e.preventDefault()
+  };
+
   return (
     <div className="login">
       <div className="loginContainer">
         <img src={logo} className="loginLogo" alt="" />
-        <Form>
+        <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control
+              type="email"
+              ref={emailRef}
+              placeholder="Enter email"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              ref={passwordRef}
+              placeholder="Password"
+            />
           </Form.Group>
-          
+
+          {
+              error && <Alert variant="danger">
+              {error} 
+            </Alert>
+          }
+
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit">
               Login
@@ -34,7 +60,7 @@ const Login = () => {
         <br />
         <h6>or,</h6>
         <Button variant="primary" type="submit">
-        <i className="fab fa-google"></i> Sign in with Google
+          <i className="fab fa-google"></i> Sign in with Google
         </Button>
       </div>
     </div>

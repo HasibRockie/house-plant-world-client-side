@@ -26,12 +26,25 @@ const Header = () => {
               Services
             </Nav.Link>
             {user?.email && (
-              <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Pay</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
+              <Nav.Link as={Link} to="/dashboard">
+                Dashboard
+              </Nav.Link>
+            )}
+            {user?.email && (
+              <NavDropdown
+                title={`${name}`}
+                className="text-danger"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item as={Link} to="/dashboard/pay">
+                  Pay
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/dashboard/orders">
                   My Orders
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Review</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/dashboard/review">
+                  Review
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogOut}>
                   Log Out
@@ -39,7 +52,7 @@ const Header = () => {
               </NavDropdown>
             )}
 
-            { isAdmin==="admin" && (
+            {isAdmin === "admin" && (
               <NavDropdown title="Manage" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                   Manage All Orders
@@ -72,7 +85,7 @@ const Header = () => {
               </Nav.Link>
             )}
 
-            {user?.email && <Nav.Link className="text-danger">{name}</Nav.Link>}
+            {/* {user?.email && <Nav.Link className="text-danger">{name}</Nav.Link>} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

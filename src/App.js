@@ -9,7 +9,11 @@ import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import Footer from "./Components/Footer/Footer";
 import AuthProvider from "./Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import PublicRoute from './PublicRoute/PublicRoute';
+import PublicRoute from "./PublicRoute/PublicRoute";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Orders from "./Pages/Orders/Orders";
+import Review from './Pages/Review/Review';
+import Pay from './Pages/Pay/Pay';
 
 function App() {
   return (
@@ -67,6 +71,44 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+              exact
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              exact
+              path="/dashboard/orders"
+              element={
+                <PrivateRoute>
+                  <Orders />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              exact
+              path="/dashboard/pay"
+              element={
+                <PrivateRoute>
+                  <Pay />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              exact
+              path="/dashboard/review"
+              element={
+                <PrivateRoute>
+                  <Review />
+                </PrivateRoute>
+              }
+            />
+
           </Routes>
           <Footer></Footer>
         </BrowserRouter>

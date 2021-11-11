@@ -16,7 +16,7 @@ const Admin = () => {
 
   useEffect(() => {
     console.log(email);
-    fetch(`http://localhost:5000/users/${email}`)
+    fetch(`https://house-plant-world.herokuapp.com/users/${email}`)
       .then((res) => res.json())
       .then((data) => setUserData(data));
   }, [email]);
@@ -25,7 +25,7 @@ const Admin = () => {
     if (userData) {
       const object = { ...userData, role: "admin" };
 
-      fetch(`http://localhost:5000/users/${email}`, {
+      fetch(`https://house-plant-world.herokuapp.com/users/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

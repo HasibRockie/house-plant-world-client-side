@@ -11,7 +11,7 @@ const ManageOrders = () => {
     // const status = e.target.value;
 
     // const object = { ...order, status: status };
-    // fetch(`http://localhost:5000/orders/${order?.id}`, {
+    // fetch(`https://house-plant-world.herokuapp.com/orders/${order?.id}`, {
     //   method: "PUT",
     //   headers: {
     //     "content-type": "application/json",

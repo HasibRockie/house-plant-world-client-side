@@ -92,6 +92,7 @@ const FirebaseSettings = () => {
     signOut(auth)
       .then(() => {
         setUser({});
+        setIsAdmin(false)
       })
       .catch((error) => {
         setError(error?.errorMessage);

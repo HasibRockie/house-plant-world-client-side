@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import Services from "./Pages/Services/Services";
+import Service from "./Pages/Services/Service";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
@@ -12,8 +13,8 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Orders from "./Pages/Orders/Orders";
-import Review from './Pages/Review/Review';
-import Pay from './Pages/Pay/Pay';
+import Review from "./Pages/Review/Review";
+import Pay from "./Pages/Pay/Pay";
 
 function App() {
   return (
@@ -44,6 +45,15 @@ function App() {
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/" element={<Home />} />
             <Route exact path="/services" element={<Services />} />
+            <Route
+              exact
+              path="/services/:id"
+              element={
+                <PrivateRoute>
+                  <Service />
+                </PrivateRoute>
+              }
+            />
             <Route
               exact
               path="/login"
@@ -108,7 +118,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
           </Routes>
           <Footer></Footer>
         </BrowserRouter>

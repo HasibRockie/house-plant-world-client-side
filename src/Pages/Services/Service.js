@@ -25,7 +25,7 @@ const Service = () => {
 
   useEffect(() => {
     const quantity = parseInt(quanitityRef.current.value);
-    const productPrice = parseInt(service?.price);
+    // const productPrice = parseInt(service?.price);
     const totalPrice = service?.price * quantity;
     setPrice(totalPrice);
   }, []);

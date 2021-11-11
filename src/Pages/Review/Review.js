@@ -13,7 +13,7 @@ const Review = () => {
   const [successful, setSuccessful] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://house-plant-world.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -22,7 +22,7 @@ const Review = () => {
     const review = reviewRef.current.value;
     const product = productRef.current.value;
     const object = { name, review, product, rating };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://house-plant-world.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

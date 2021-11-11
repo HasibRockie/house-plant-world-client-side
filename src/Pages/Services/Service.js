@@ -30,7 +30,7 @@ const Service = () => {
     setPrice(totalPrice);
   }, []);
 
-  fetch(`http://localhost:5000/service?_id=${id}`)
+  fetch(`https://house-plant-world.herokuapp.com/service?_id=${id}`)
     .then((res) => res.json())
     .then((data) => setService(data));
 
@@ -67,7 +67,7 @@ const Service = () => {
     };
     setDetails(object);
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://house-plant-world.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

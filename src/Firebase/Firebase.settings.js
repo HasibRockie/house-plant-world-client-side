@@ -33,7 +33,7 @@ const FirebaseSettings = () => {
       setIsLoading(false);
     });
 
-    const url = `http://localhost:5000/users/${email}`;
+    const url = `https://house-plant-world.herokuapp.com/users/${email}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -52,7 +52,7 @@ const FirebaseSettings = () => {
         setName(name);
         setUser({ ...verified, displayName: name });
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://house-plant-world.herokuapp.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

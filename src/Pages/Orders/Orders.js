@@ -10,7 +10,7 @@ const Orders = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email=${user?.email}`)
+    fetch(`https://house-plant-world.herokuapp.com/order?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders]);
@@ -34,7 +34,7 @@ const Order = ({ order }) => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email=${user?.email}`)
+    fetch(`https://house-plant-world.herokuapp.com/order?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [deleted]);
@@ -57,7 +57,7 @@ const Order = ({ order }) => {
   };
 
   const handleCancelOrder = (order) => {
-    fetch(`http://localhost:5000/orders/${order._id}`, {
+    fetch(`https://house-plant-world.herokuapp.com/orders/${order._id}`, {
       method: "DELETE",
     }).then((res) => {
       setDeleted(true);

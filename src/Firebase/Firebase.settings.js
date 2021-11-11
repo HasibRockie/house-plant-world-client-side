@@ -15,13 +15,23 @@ const FirebaseSettings = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [email, setEmail] = useState(null);
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   //   on auth state change
   useEffect(() => {
     setIsLoading(true);
+
+    const url = `https://house-plant-world.herokuapp.com/users/${email}`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setIsAdmin(data?.role);
+        setName(data?.displayName);
+      });
+
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -32,15 +42,6 @@ const FirebaseSettings = () => {
       }
       setIsLoading(false);
     });
-
-    const url = `https://house-plant-world.herokuapp.com/users/${email}`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setIsAdmin(data?.role);
-        setName(data?.displayName);
-      });
   }, [email]);
 
   //   sign up function
@@ -92,7 +93,7 @@ const FirebaseSettings = () => {
     signOut(auth)
       .then(() => {
         setUser({});
-        setIsAdmin(false)
+        setIsAdmin(false);
       })
       .catch((error) => {
         setError(error?.errorMessage);

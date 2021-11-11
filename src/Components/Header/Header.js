@@ -54,16 +54,16 @@ const Header = () => {
 
             {isAdmin === "admin" && (
               <NavDropdown title="Manage" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item as={Link} to="/manage/orders">
                   Manage All Orders
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
+                <NavDropdown.Item as={Link} to="/manage/add">
                   Add A Product
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Item as={Link} to="/manage/admin">
                   Make Admin
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Item as={Link} to="/manage/products">
                   Manage Products
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

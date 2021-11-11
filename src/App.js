@@ -15,6 +15,12 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Orders from "./Pages/Orders/Orders";
 import Review from "./Pages/Review/Review";
 import Pay from "./Pages/Pay/Pay";
+import AdminRoute from "./AdminRoute/AdminRoute";
+import AddProducts from './Pages/Manage/AddProducts';
+import Admin from './Pages/Manage/Admin';
+import ManageOrders from './Pages/Manage/ManageOrders';
+import ManageProducts from './Pages/Manage/ManageProducts';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -118,6 +124,45 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+              exact
+              path="/manage/add"
+              element={
+                <AdminRoute>
+                  <AddProducts />
+                </AdminRoute>
+              }
+            />
+            <Route
+              exact
+              path="/manage/admin"
+              element={
+                <AdminRoute>
+                  <Admin />
+                </AdminRoute>
+              }
+            />
+            <Route
+              exact
+              path="/manage/orders"
+              element={
+                <AdminRoute>
+                  <ManageOrders />
+                </AdminRoute>
+              }
+            />
+            <Route
+              exact
+              path="/manage/products"
+              element={
+                <AdminRoute>
+                  <ManageProducts />
+                </AdminRoute>
+              }
+            />
+
+            <Route path='*' element={<NotFound />} />
+
           </Routes>
           <Footer></Footer>
         </BrowserRouter>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { Table, Button, Form } from "react-bootstrap";
+import { confirmAlert } from "react-confirm-alert";
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -18,6 +19,32 @@ const ManageOrders = () => {
     //   body: JSON.stringify(object),
     // });
     // console.log(status);
+  };
+
+  const handleCancelOrder = (order) => {
+    fetch(`https://house-plant-world.herokuapp.com/orders/${order._id}`, {
+        method: "DELETE",
+      }).then((res) => {
+        const remaining = orders.filter((o) => o._id !== order._id);
+        setOrders(remaining);
+      });
+  }
+
+  const submit = (order) => {
+    confirmAlert({
+      title: "Confirm Cancel Order",
+      message: "Are you sure to cancel this order?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleCancelOrder(order),
+        },
+        {
+          label: "No",
+          //   onClick: () => alert('Click No')
+        },
+      ],
+    });
   };
 
   useEffect(() => {
@@ -69,7 +96,7 @@ const ManageOrders = () => {
                   </Form.Select>
                 </td>
                 <td>
-                  <Button variant="danger">Cancel Order</Button>
+                  <Button onClick={() => submit(order)} variant="danger">Cancel Order</Button>
                 </td>
               </tr>
             ))}

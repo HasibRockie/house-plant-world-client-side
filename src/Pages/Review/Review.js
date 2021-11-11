@@ -18,7 +18,6 @@ const Review = () => {
       .then((data) => setProducts(data));
   }, []);
 
-
   const handleSubmit = (e) => {
     const review = reviewRef.current.value;
     const product = productRef.current.value;
@@ -30,8 +29,8 @@ const Review = () => {
       },
       body: JSON.stringify(object),
     }).then((res) => {
-        setSuccessful(true)
-        e.target.reset()
+      setSuccessful(true);
+      e.target.reset();
     });
     e.preventDefault();
   };
@@ -54,6 +53,7 @@ const Review = () => {
             placeholder="Write Your Review"
             ref={reviewRef}
             style={{ height: "100px" }}
+            required
           />
         </FloatingLabel>
         <br />
@@ -72,6 +72,7 @@ const Review = () => {
         <div className="float-left">
           <Form.Label>Give Ratings: </Form.Label> <br />
           <Rating
+            required
             onChange={(value) => setRating(value)}
             className="text-left"
             emptySymbol="fa fa-star-o fa-2x"

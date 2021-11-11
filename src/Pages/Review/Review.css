@@ -6,6 +6,10 @@
     border-radius: 5px;
 }
 
+.fa-star{
+    color:rgb(252, 138, 118);
+}
+
 @media only screen and (max-width:900px) {
     .review{
         width: 100%;

@@ -15,7 +15,7 @@ const FirebaseSettings = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [email, setEmail] = useState(null);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,6 +49,7 @@ const FirebaseSettings = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const verified = userCredential.user;
+        setName(name);
         setUser({ ...verified, displayName: name });
 
         fetch("http://localhost:5000/users", {

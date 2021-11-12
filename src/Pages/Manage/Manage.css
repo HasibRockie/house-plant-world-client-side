@@ -1,0 +1,14 @@
+.add-products *{
+    text-align: left;
+}
+
+.add-products{
+    margin-top: 50px;
+    padding: 30px 40px;
+    border: 2px solid rgb(214, 214, 214);
+    background-color: rgba(241, 241, 241, 0.767);
+}
+
+.add-products button{
+    text-align: left;
+}

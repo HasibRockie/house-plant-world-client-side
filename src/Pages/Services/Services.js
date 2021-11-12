@@ -7,7 +7,7 @@ const Services = () => {
   useEffect(() => {
     fetch("https://house-plant-world.herokuapp.com/services")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.reverse()));
   }, []);
 
   return (

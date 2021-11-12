@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "./LOGO.png";
@@ -54,9 +54,6 @@ const Header = () => {
 
             {isAdmin === "admin" && (
               <NavDropdown title="Manage" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/manage/orders">
-                  Manage All Orders
-                </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/manage/add">
                   Add A Product
                 </NavDropdown.Item>
@@ -65,6 +62,9 @@ const Header = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/manage/products">
                   Manage Products
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/manage/orders">
+                  Manage All Orders
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogOut}>

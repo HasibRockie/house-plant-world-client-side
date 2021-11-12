@@ -8,7 +8,7 @@ const Products = () => {
   useEffect(() => {
     fetch("https://house-plant-world.herokuapp.com/services")
       .then((res) => res.json())
-      .then((data) => setProducts(data.slice(0, 6)));
+      .then((data) => setProducts(data.reverse().slice(0, 6)));
   }, []);
   return (
     <div className="mt-5">

@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const url = `${product._id}`;
+  const url = `/services/${product._id}`;
   
   return (
     <Card className="p-3">

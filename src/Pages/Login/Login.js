@@ -60,10 +60,7 @@ const Login = () => {
           Have an account? <Link to="/register"> Register </Link>
         </h6>
         <br />
-        <h6>or,</h6>
-        <Button variant="primary" type="submit">
-          <i className="fab fa-google"></i> Sign in with Google
-        </Button>
+        
       </div>
     </div>
   );

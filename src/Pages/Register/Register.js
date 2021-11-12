@@ -90,10 +90,7 @@ const Register = () => {
           Have an account? <Link to="/login"> Login </Link>
         </h6>
         <br />
-        <h6>or,</h6>
-        <Button variant="primary" type="submit">
-          <i className="fab fa-google"></i> Sign up with Google
-        </Button>
+        
       </div>
     </div>
   );

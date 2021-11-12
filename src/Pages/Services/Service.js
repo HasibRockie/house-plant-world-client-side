@@ -85,7 +85,7 @@ const Service = () => {
     <div className="service-div">
       <div className="container order-container">
         <br />
-        <h2>Your Order:</h2>
+        <h2> Place Your Order:</h2>
         <hr />
         <br /> <br />
         <div className="item">

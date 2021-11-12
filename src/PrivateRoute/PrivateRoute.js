@@ -4,10 +4,11 @@ import useAuth from "./../Context/useAuth";
 
 function PrivateRoute({ children }) {
   const { user, isLoading } = useAuth();
+
   if(isLoading){
       return(<Spinner animation="grow" />)
   }
-  return user?.email ? children : <Navigate to="/login" />;
+  return user?.email ? children : <Navigate to="/login"  />;
 }
 
 export default PrivateRoute;

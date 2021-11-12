@@ -4,17 +4,21 @@ import "./Login.css";
 import logo from "../../Components/Header/LOGO.png";
 import { Link } from "react-router-dom";
 import useAuth from "./../../Context/useAuth";
+import { useLocation, useNavigate, useHistory } from "react-router";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const emailRef = useRef();
   const passwordRef = useRef();
   const { SignInWithEmail, error } = useAuth();
+
 
   const handleLogin = (e) => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     SignInWithEmail(email, password);
-    e.preventDefault()
+    e.preventDefault();
   };
 
   return (
@@ -40,19 +44,13 @@ const Login = () => {
             />
           </Form.Group>
 
-          
-
           <div className="d-grid gap-2">
             <Button variant="primary" type="submit">
               Login
             </Button>
           </div>
           <br />
-          {
-              error && <Alert variant="danger">
-              {error} 
-            </Alert>
-          }
+          {error && <Alert variant="danger">{error}</Alert>}
         </Form>
 
         <hr />
@@ -60,7 +58,6 @@ const Login = () => {
           Have an account? <Link to="/register"> Register </Link>
         </h6>
         <br />
-        
       </div>
     </div>
   );
